@@ -17,6 +17,7 @@ public class MoveToBathtub : MonoBehaviour
 	private bool isBoosted;
 	private	VisualEffect smoke_vfx;
 	static public float timeBoost;
+	float time4avg = 0;
 	
 
 	void Start()
@@ -27,14 +28,20 @@ public class MoveToBathtub : MonoBehaviour
 		bathtub = GameObject.Find("Bathtub").transform;
 		isBoosted = false;
 		agent.destination = bathtub.position;
+		last_position = agent.transform.position;
 
 	}
 
 	void Update()
 	{
-		Vector3 velocity = agent.transform.position - last_position;
-
-		smoke_vfx.SetVector3("speed", velocity*100); //Update of the smoke's speed based on the shadow's destination
+		time4avg += Time.deltaTime;
+		if (time4avg > 0.1)
+        {
+			time4avg -= (float)0.1;
+			Vector3 velocity = agent.transform.position - last_position;
+			last_position = agent.transform.position;
+			smoke_vfx.SetVector3("speed", 10*velocity.magnitude*(new Vector3(0,0,1))); //Update of the smoke's speed based on the shadow's speed, (0,0,1) is linked to agent's direction
+		}
 
 		if (!isBoosted)
         {
@@ -53,8 +60,5 @@ public class MoveToBathtub : MonoBehaviour
 			agent.isStopped = true;
         }
 
-
-
-		last_position = agent.transform.position;
 	}
 }
