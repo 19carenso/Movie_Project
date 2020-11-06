@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.test_fbt_g8.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\VR\\Documents\\Projet_Marat\\CORPS ANIME - Copie - Copie\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\VR\\Documents\\Projet_Marat\\Movie_Project\\max_game_v1\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "Test_FBT_G8 [Testing]"

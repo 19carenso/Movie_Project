@@ -26,6 +26,7 @@ public class GenerateEnemies : MonoBehaviour
         initialAcceleration = 2f;
         spawnRate = 5f;
         prob_spawn_behind = 0.5f;
+        enemyCount = 0;
     }
 
     void Update()
@@ -42,7 +43,7 @@ public class GenerateEnemies : MonoBehaviour
     }
     IEnumerator EnemyDrop()
     {
-        while (enemyCount < 100)
+        while (enemyCount < 10)
         {   
             if(Countdown.timerActive)
             {
@@ -54,25 +55,28 @@ public class GenerateEnemies : MonoBehaviour
                 // pour faciliter le jeu on peut commencer par interdire le spawn dans la zone juste dans le dos du joueur
                 // mais les monstres pourraient toujours passer par les fenetres
 
-                xPos = (int)Random.Range(-310f, -295f);
+                xPos = (int)Random.Range(-20f, 20f);
 
-                if (xPos >= -308 & xPos <= -298)
+                if (xPos >= -10 & xPos <= 10)
                 {
                     if (Random.value <= prob_spawn_behind) // pour interdire la zone dont je parlais tout à l'heure 
                                                           //il faudrait baisser cette zone en réduisant le flottant prob_spawn_behind
                     {
-                        zPos = (int)Random.Range(-4.8f, -1.65f);
+                        zPos = (int)Random.Range(-20f, -20f);
                     }
 
                     else
                     {
-                        zPos = (int)Random.Range(11.5f, 12.7f);
+                        zPos = (int)Random.Range(10f, 20f);
                     }
                     
                 }
 
-                zPos = (int)Random.Range(-4.8f, 12.7f);
-                
+                else
+                {
+                    zPos = (int)Random.Range(-20f, 20f);
+                }
+
 
                 Instantiate(theEnemy, new Vector3(xPos, 1f, zPos), Quaternion.identity);
                 

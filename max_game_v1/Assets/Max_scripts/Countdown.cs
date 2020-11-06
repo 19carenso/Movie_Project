@@ -31,6 +31,7 @@ public class Countdown : MonoBehaviour
 
     public void TimerButton()
     {
+        Debug.Log("started ?");
         timerActive = !timerActive;
         startBtnText.text = timerActive ? "Pause" : "Start";
     }

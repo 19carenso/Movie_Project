@@ -34,7 +34,7 @@ public class candle_off : MonoBehaviour
         {
             velocity = (this.gameObject.transform.position - last_position) / time4avg;
             time4avg = 0;
-            UnityEngine.Debug.Log(velocity.magnitude);
+            //UnityEngine.Debug.Log(velocity.magnitude);
             last_position = this.gameObject.transform.position;
         }
         if (cooldown > 0)

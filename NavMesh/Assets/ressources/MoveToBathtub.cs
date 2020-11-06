@@ -40,7 +40,7 @@ public class MoveToBathtub : MonoBehaviour
 			time4avg -= (float)0.1;
 			Vector3 velocity = agent.transform.position - last_position;
 			last_position = agent.transform.position;
-			smoke_vfx.SetVector3("speed", 10*velocity.magnitude*(new Vector3(0,0,1))); //Update of the smoke's speed based on the shadow's speed, (0,0,1) is linked to agent's direction
+			smoke_vfx.SetVector3("speed", 1000*velocity.magnitude*(new Vector3(0,0,1))); //Update of the smoke's speed based on the shadow's speed, (0,0,1) is linked to agent's direction
 		}
 
 		if (!isBoosted)
